@@ -1,0 +1,48 @@
+Determining if the Fortran sgemm exists failed with the following output:
+Change Dir: /ihome/kjordan/thc9/fermi/Development/smp_local/pisces/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_073f4/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_073f4.dir/build.make CMakeFiles/cmTC_073f4.dir/build
+gmake[1]: Entering directory `/ihome/kjordan/thc9/fermi/Development/smp_local/pisces/build/CMakeFiles/CMakeTmp'
+Building Fortran object CMakeFiles/cmTC_073f4.dir/testFortranCompiler.f.o
+/ihome/crc/install/intel/2017.1.132/compilers_and_libraries_2017.1.132/linux/bin/intel64/ifort     -c /ihome/kjordan/thc9/fermi/Development/smp_local/pisces/build/CMakeFiles/CMakeTmp/testFortranCompiler.f -o CMakeFiles/cmTC_073f4.dir/testFortranCompiler.f.o
+Linking Fortran executable cmTC_073f4
+/ihome/crc/install/cmake/3.7.1/bin/cmake -E cmake_link_script CMakeFiles/cmTC_073f4.dir/link.txt --verbose=1
+/ihome/crc/install/intel/2017.1.132/compilers_and_libraries_2017.1.132/linux/bin/intel64/ifort       CMakeFiles/cmTC_073f4.dir/testFortranCompiler.f.o  -o cmTC_073f4  /usr/lib64/libblas.a 
+/usr/lib64/libblas.a(xerbla.o): In function `xerbla_':
+xerbla.f:(.text+0x49): undefined reference to `_gfortran_st_write'
+xerbla.f:(.text+0x54): undefined reference to `_gfortran_string_len_trim'
+xerbla.f:(.text+0x69): undefined reference to `_gfortran_transfer_character_write'
+xerbla.f:(.text+0x79): undefined reference to `_gfortran_transfer_integer_write'
+xerbla.f:(.text+0x81): undefined reference to `_gfortran_st_write_done'
+xerbla.f:(.text+0x8a): undefined reference to `_gfortran_stop_string'
+gmake[1]: *** [cmTC_073f4] Error 1
+gmake[1]: Leaving directory `/ihome/kjordan/thc9/fermi/Development/smp_local/pisces/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_073f4/fast] Error 2
+
+
+Determining if the Fortran cheev exists failed with the following output:
+Change Dir: /ihome/kjordan/thc9/fermi/Development/smp_local/pisces/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_e1415/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_e1415.dir/build.make CMakeFiles/cmTC_e1415.dir/build
+gmake[1]: Entering directory `/ihome/kjordan/thc9/fermi/Development/smp_local/pisces/build/CMakeFiles/CMakeTmp'
+Building Fortran object CMakeFiles/cmTC_e1415.dir/testFortranCompiler.f.o
+/ihome/crc/install/intel/2017.1.132/compilers_and_libraries_2017.1.132/linux/bin/intel64/ifort     -c /ihome/kjordan/thc9/fermi/Development/smp_local/pisces/build/CMakeFiles/CMakeTmp/testFortranCompiler.f -o CMakeFiles/cmTC_e1415.dir/testFortranCompiler.f.o
+Linking Fortran executable cmTC_e1415
+/ihome/crc/install/cmake/3.7.1/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e1415.dir/link.txt --verbose=1
+/ihome/crc/install/intel/2017.1.132/compilers_and_libraries_2017.1.132/linux/bin/intel64/ifort       CMakeFiles/cmTC_e1415.dir/testFortranCompiler.f.o  -o cmTC_e1415 -Wl,-rpath,/ihome/crc/install/intel/2017.1.132/compilers_and_libraries_2017.1.132/linux/compiler/lib/intel64  /usr/lib64/liblapack.a -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core /ihome/crc/install/intel/2017.1.132/compilers_and_libraries_2017.1.132/linux/compiler/lib/intel64/libiomp5.so 
+/usr/lib64/liblapack.a(xerbla.o): In function `xerbla_':
+xerbla.f:(.text+0x49): undefined reference to `_gfortran_st_write'
+xerbla.f:(.text+0x54): undefined reference to `_gfortran_string_len_trim'
+xerbla.f:(.text+0x69): undefined reference to `_gfortran_transfer_character_write'
+xerbla.f:(.text+0x79): undefined reference to `_gfortran_transfer_integer_write'
+xerbla.f:(.text+0x81): undefined reference to `_gfortran_st_write_done'
+xerbla.f:(.text+0x8a): undefined reference to `_gfortran_stop_string'
+/usr/lib64/liblapack.a(iparam2stage.o): In function `iparam2stage_':
+iparam2stage.F:(.text+0x1d7): undefined reference to `_gfortran_compare_string'
+gmake[1]: *** [cmTC_e1415] Error 1
+gmake[1]: Leaving directory `/ihome/kjordan/thc9/fermi/Development/smp_local/pisces/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_e1415/fast] Error 2
+
+

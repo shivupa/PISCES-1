@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH --job-name=c60
+#SBATCH --output=c60.out
+#SBATCH --time=00:40:00
+#SBATCH --nodes=1
+#SBATCH --tasks-per-node=12
+#SBATCH --cpus-per-task=1
+
+for i in 12
+  do
+    export OMP_NUM_THREADS=$i
+    export MKL_NUM_THREADS=$i
+    /ihome/kjordan/thc9/fermi/Development/smp_local/pisces/build/pisces c60.inp > out.c60_$i
+  done
+
+

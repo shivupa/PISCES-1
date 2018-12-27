@@ -1,0 +1,2 @@
+/usr/bin/ar cr libpiscesf.a  CMakeFiles/piscesf.dir/src/lbfgs.f.o
+/usr/bin/ranlib libpiscesf.a
