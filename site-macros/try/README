@@ -1,0 +1,40 @@
+SYNOPSIS 
+
+  A set of small cmake projects and programs for CMake TRY_COMPILE().
+
+DESCRIPTION
+
+  TRY_COMPILE() can be used to test out various features required to build a
+  program, instead of using the standard cmake modules. 
+
+  For example, an especially useful one is BLASLAPACK, which can be to used
+  circumvent FindBLAS.cmake and FindLAPACK.cmake modules. Most clusters
+  implement wrappers for these libs which work just fine, but somehow these
+  standard modules do a poor job and are unable to handle such environment. The
+  following code may be inserted to the CMakeLists.txt:
+
+  
+     try_compile( FOO_HAS_IMPLICIT_BLAS aux ./site-macros/try/blaslapack BLASLAPACK OUTPUT_VARIABLE FOO_HAS_IMPLICIT_BLAS_compile_result )
+     
+     if ( FOO_HAS_IMPLICIT_BLAS ) 
+        message( "Can link BLAS, no additional definitions necessary" )
+     else ( FOO_HAS_IMPLICIT_BLAS )
+        message( "Default link to BLAS failed, trying standard module" )
+        find_blas( BLAS REQUIRED ) 
+     endif( FOO_HAS_IMPLICIT_BLAS )
+     
+     # ... same code as usual 
+     target_link_libraries( foo ${BLAS_LIBRARIES} ) 
+
+ 
+        
+LISTING 
+
+  BLASLAPACK: CMake project with targets blas, lapack
+  MIXEDFORTRANC: CMake project for testing mixed code with targets fcallc and
+     ccallf (for Fortran main, and C main programs, respectively)
+
+
+TODO
+
+  *  Implement blaslapack/lapack.f90
