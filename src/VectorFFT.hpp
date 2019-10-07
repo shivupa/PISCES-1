@@ -29,6 +29,6 @@ struct VectorFFT
 
   explicit VectorFFT(int * n_1dbas);
   ~VectorFFT();
-  void apply(const double* restrict x, double* restrict y, const double * restrict v_diag, const double * restrict KE_diag);
+  void apply(const double* __restrict x, double* __restrict y, const double * __restrict v_diag, const double * __restrict KE_diag);
 };
 #endif

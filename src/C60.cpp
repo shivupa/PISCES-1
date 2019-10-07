@@ -1136,7 +1136,7 @@ double Potential::EvaluateCsixtyPolPot(const double *x )
         Vpol = -ddot(&n_pol3, &Efield_pol3[0], &one, &mu_pol3[0], &one) ; // not using 0.5 as nothing is double counted
        // cout<<"Vpol = "<<Vpol<<endl;
       break;
-      case 7:
+      case 7: {
       // cout<<"here is the elecric filed ----- "<<endl;
  
 
@@ -1881,7 +1881,8 @@ double Q_yz = 0.0;
         exit(0);
 
       break;
-      case 8:
+   }
+      case 8:{
         // computing polarization and induction
         //
 
@@ -1891,9 +1892,9 @@ double Q_yz = 0.0;
         }
 
        
-      Ex=0.00;
-      Ey=0.00;
-      Ez=0.001;
+      double Ex=0.00;
+      double Ey=0.00;
+      double Ez=0.001;
 
   //      cout<<"CarbonType = "<<CarbonType<<endl;
         for (int i =0 ; i < nSites; ++i){
@@ -2036,7 +2037,7 @@ MSij[13][3]=0.0562701;
      //   dgemv("N", &n, &n, &done, &(MolPol[0].InvA[0]), &n, &Efield[0], &one, &dzero, &mu[0], &one);
        // dgemv("N", &n, &n, &done, &(MolPol[0].InvA[0]), &n, &EfieldNet_new[0], &one, &dzero, &mu[0], &one);
 
-         summu=0.0;
+         double summu=0.0;
         for (int i =0 ; i < 60; ++i){
            cout<<"mu[ "<<i<<" ] = "<<mu[i]<<endl;
            summu += mu[i];        
@@ -2055,6 +2056,7 @@ MSij[13][3]=0.0562701;
 
       break;
       printf("EvaluateCsixtyPol: This should never happen\n");
+      }
       default:
       exit(42);
     }
