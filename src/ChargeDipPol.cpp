@@ -30,7 +30,7 @@ using namespace std;
 //
 //   dim(A) = 3*nSiyes x 3*nSites
 //
-void InvChargeDipolePol(int nSites, const double *R, double *InvA, int nFullerenes, const int *NoAtomsArray, int CarbonType, int *IonType)
+void InvChargeDipolePol(int nSites, const double *R, double *InvA, int nFullerenes, const int *NoAtomsArray, int CarbonType, int *IonType, int AlphaComp)
 {
 
  int verbose = 0;
@@ -39,13 +39,7 @@ progress_timer t("ComputeInvPolarization", verbose);
   BuildPolarizationMatrix(nSites, R, InvA, nFullerenes, NoAtomsArray, CarbonType, IonType);  
   InvertCDMatrix(4*nSites+nFullerenes, InvA);
 
-//  BuildPolarizationMatrix2(nSites, R, InvA, nFullerenes, NoAtomsArray );  
-//  InvertCDMatrix(3*nSites, InvA);
-
-//  BuildPolarizationMatrix3(nSites, R, InvA, nFullerenes, NoAtomsArray, CarbonType, IonType);  
-//  InvertCDMatrix(nSites+nFullerenes, InvA);
  cout<<"start InvA ~~~~"<<endl;
-//  InvertCDMatrix(nSites*(nSites-1)/2, InvA);
 
  int n = nSites;
 int n4plus1 = 4*nSites+nFullerenes; 
@@ -59,34 +53,11 @@ double alpha_zx = 0.0;
 double alpha_yz = 0.0;
 double alpha_zy = 0.0;
 double temp=0.0;
-/*
-
-double Q_xx = 0.0;
-double Q_yy = 0.0;
-double Q_zz = 0.0;
-double Q_xy = 0.0;
-double Q_xz = 0.0;
-double Q_yz = 0.0;
-
-  for (int i = 0; i < n; ++i){
-    double Ri2 = R[3*i+0]*R[3*i+0] + R[3*i+1]*R[3*i+1] + R[3*i+2]*R[3*i+2];
-    Q_xx += 3.0*InvA[n4plus1*i]*R[3*i+0]*R[3*i+0] - Ri2;
-    Q_yy += 3.0*InvA[n4plus1*i]*R[3*i+1]*R[3*i+1] - Ri2;
-    Q_zz += 3.0*InvA[n4plus1*i]*R[3*i+2]*R[3*i+2] - Ri2;
-    Q_xy += 3.0*InvA[n4plus1*i]*R[3*i+0]*R[3*i+1];
-    Q_xz += 3.0*InvA[n4plus1*i]*R[3*i+0]*R[3*i+2];
-    Q_yz += 3.0*InvA[n4plus1*i]*R[3*i+1]*R[3*i+2];
-  }
-*/
-
-  for (int j = 0; j < n; ++j){
-    for (int i = 0; i < n; ++i){
 
 //For the charge-charge term
-
-
-
-
+if (AlphaComp == 1){
+  for (int j = 0; j < n; ++j){
+    for (int i = 0; i < n; ++i){
        alpha_xx += InvA[n4plus1*i+j]*R[3*i+0]*R[3*j+0];
        alpha_xy += InvA[n4plus1*i+j]*R[3*i+0]*R[3*j+1];
        alpha_xz += InvA[n4plus1*i+j]*R[3*i+0]*R[3*j+2];
@@ -96,90 +67,7 @@ double Q_yz = 0.0;
        alpha_zx += InvA[n4plus1*i+j]*R[3*i+2]*R[3*j+0];
        alpha_zy += InvA[n4plus1*i+j]*R[3*i+2]*R[3*j+1];
        alpha_zz += InvA[n4plus1*i+j]*R[3*i+2]*R[3*j+2];
-
-
-
-// For the dipole-chrage term
-
-
- //    cout<<"n4plus1 ="<<n4plus1<<endl;
- //   cout<<" i and j zz " <<i<<" "<<j<<" "<<n*n4plus1+j*3*n4plus1+ n4plus1+ n4plus1+i<<" "<<endl;
- //   cout<<" i and j xx " <<i<<" "<<j<<" "<<n*n4plus1+j*3*n4plus1+ i<<" "<<endl;
-  
-
-
-
-       alpha_xx -= 2*InvA[n*n4plus1+j*3*n4plus1                  +i]*R[3*i+0]; 
-       alpha_xy -= 2*InvA[n*n4plus1+j*3*n4plus1                  +i]*R[3*i+1]; 
-       alpha_xz -= 2*InvA[n*n4plus1+j*3*n4plus1                  +i]*R[3*i+2]; 
-       alpha_yx -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1         +i]*R[3*i+0]; 
-       alpha_yy -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1         +i]*R[3*i+1]; 
-       alpha_yz -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1         +i]*R[3*i+2]; 
-       alpha_zx -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1+ n4plus1+i]*R[3*i+0]; 
-       alpha_zy -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1+ n4plus1+i]*R[3*i+1]; 
-       alpha_zz -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1+ n4plus1+i]*R[3*i+2]; 
-
-
-
- //       cout<<"InvA[n4plus1*i+j] = " << InvA[n4plus1*i+j]<<endl;
-
-//      cout<<"R["<<3*i+0<<"]="<<R[3*i+0]<<endl;
-//      cout<<"R["<<3*i+1<<"]="<<R[3*i+1]<<endl;
-//      cout<<"R["<<3*i+2<<"]="<<R[3*i+2]<<endl;
-//      cout<<"InvA[i*n4plus1+n+3*j+0] =" <<InvA[i*n4plus1+n+3*j+0] <<endl;
-//      cout<<"muti =" <<InvA[i*n4plus1+n+3*j+0] * R[3*i+0] <<endl;
-//      cout<<"InvA[i*n4plus1+n+3*j+1] =" <<InvA[i*n4plus1+n+3*j+1] <<endl;
-//      cout<<"InvA[i*n4plus1+n+3*j+2] =" <<InvA[i*n4plus1+n+3*j+2] <<endl;
-
-//        cout<<"alpha_xx = "<<alpha_xx<<endl;
-//        cout<<"R[3*i+0] R[3*i+1]  = "<<R[3*i+0]<<" "<<R[3*i+1]<<endl;
-
-
-// For the dipole-dipole term
-
-
-
-       alpha_xx += InvA[n*n4plus1+3*i*n4plus1 +                  n+j*3+0];
-       alpha_xy += InvA[n*n4plus1+3*i*n4plus1 +                  n+j*3+1]; 
-       alpha_xz += InvA[n*n4plus1+3*i*n4plus1 +                  n+j*3+2]; 
-       alpha_yx += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+          n+j*3+0]; 
-       alpha_yy += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+          n+j*3+1];
-       alpha_yz += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+          n+j*3+2]; 
-       alpha_zx += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+ n4plus1+ n+j*3+0]; 
-       alpha_zy += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+ n4plus1+ n+j*3+1]; 
-       alpha_zz += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+ n4plus1+ n+j*3+2];
-
-
-/*
-       alpha_xx += InvA[3*i*n*3           +j*3+0];
-       alpha_xy += InvA[3*i*n*3           +j*3+1]; 
-       alpha_xz += InvA[3*i*n*3           +j*3+2]; 
-       alpha_yx += InvA[3*i*n*3 +n*3      +j*3+0]; 
-       alpha_yy += InvA[3*i*n*3 +n*3      +j*3+1];
-       alpha_yz += InvA[3*i*n*3 +n*3      +j*3+2]; 
-       alpha_zx += InvA[3*i*n*3 +n*3+ n*3 +j*3+0]; 
-       alpha_zy += InvA[3*i*n*3 +n*3+ n*3 +j*3+1]; 
-       alpha_zz += InvA[3*i*n*3 +n*3+ n*3 +j*3+2];
-*/
-
-//       cout<<" alpha_xx ["<<3*i*n*3+j*3+0<<"]="<<InvA[3*i*n*3 +j*3+0]<<endl;
-//       cout<<" alpha_yy ["<<3*i*n*3+ n*3+j*3+1<<"]="<<InvA[3*i*n*3+n*3 +j*3+1]<<endl;
-//       cout<<" alpha_zz ["<<3*i*n*3+ n*3+n*3+j*3+2<<"]="<<InvA[3*i*n*3+n*3+n*3 +j*3+2]<<endl;
-
-//       cout<<"2 alpha_xx ["<< n*n4plus1+3*i*n4plus1+n+j*3+0 <<"]="<<InvA[n*n4plus1+3*i*n4plus1 +                  n+j*3+0]<<endl;
- 
-
        temp += InvA[i*n4plus1+n+3*j+0];
-//      cout<<"index =  "<< i*n4plus1+n+3*j+0<<endl;
-//      cout<<"temp = "<<temp<<" "<< InvA[i*n4plus1+n+3*j+0]<<endl;
-
-/*
-       alpha_xx += InvA[i*n4plus1+n+3*j+0];
-       alpha_yy += InvA[i*n4plus1+n+3*j+1];
-       alpha_zz += InvA[i*n4plus1+n+3*j+2];
-*/
-
-
     }
   } 
  cout<<"---Polarizability  -------"<<endl;
@@ -192,30 +80,170 @@ double Q_yz = 0.0;
  cout<<"alpha_zx = "<<alpha_zx<<endl;
  cout<<"alpha_yz = "<<alpha_yz<<endl;
  cout<<"alpha_zy = "<<alpha_zy<<endl;
-
-/*
- cout<<"---Quadrupole moment  -------"<<endl;
- cout<<"Q_xx = "<<Q_xx<<endl;
- cout<<"Q_yy = "<<Q_yy<<endl;
- cout<<"Q_zz = "<<Q_zz<<endl;
- cout<<"Q_xy = "<<Q_xy<<endl;
- cout<<"Q_xz = "<<Q_xz<<endl;
- cout<<"Q_yz = "<<Q_yz<<endl;
-*/
-
-/*
-
-  for (int i = 0; i < n4plus1; ++i){
-    for (int j = 0; j < n4plus1; ++j){
-     cout<<" "<<InvA[i*n4plus1+j];
-    }
-    cout<<endl;
-  }
-*/
-
-
 }
 
+
+//For the cross-term
+else if (AlphaComp == 2){
+  for (int j = 0; j < n; ++j){
+    for (int i = 0; i < n; ++i){
+       alpha_xx -= 2*InvA[n*n4plus1+j*3*n4plus1                  +i]*R[3*i+0]; 
+       alpha_xy -= 2*InvA[n*n4plus1+j*3*n4plus1                  +i]*R[3*i+1]; 
+       alpha_xz -= 2*InvA[n*n4plus1+j*3*n4plus1                  +i]*R[3*i+2]; 
+       alpha_yx -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1         +i]*R[3*i+0]; 
+       alpha_yy -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1         +i]*R[3*i+1]; 
+       alpha_yz -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1         +i]*R[3*i+2]; 
+       alpha_zx -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1+ n4plus1+i]*R[3*i+0]; 
+       alpha_zy -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1+ n4plus1+i]*R[3*i+1]; 
+       alpha_zz -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1+ n4plus1+i]*R[3*i+2]; 
+       temp += InvA[i*n4plus1+n+3*j+0];
+    }
+  } 
+ cout<<"---Polarizability  -------"<<endl;
+ cout<<"alpha_xx = "<<alpha_xx<<endl;
+ cout<<"alpha_yy = "<<alpha_yy<<endl;
+ cout<<"alpha_zz = "<<alpha_zz<<endl;
+ cout<<"alpha_xy = "<<alpha_xy<<endl;
+ cout<<"alpha_yx = "<<alpha_yx<<endl;
+ cout<<"alpha_xz = "<<alpha_xz<<endl;
+ cout<<"alpha_zx = "<<alpha_zx<<endl;
+ cout<<"alpha_yz = "<<alpha_yz<<endl;
+ cout<<"alpha_zy = "<<alpha_zy<<endl;
+}
+
+
+
+// For the dipole-dipole term
+else if (AlphaComp == 3){
+  for (int j = 0; j < n; ++j){
+    for (int i = 0; i < n; ++i){
+       alpha_xx += InvA[n*n4plus1+3*i*n4plus1 +                  n+j*3+0];
+       alpha_xy += InvA[n*n4plus1+3*i*n4plus1 +                  n+j*3+1]; 
+       alpha_xz += InvA[n*n4plus1+3*i*n4plus1 +                  n+j*3+2]; 
+       alpha_yx += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+          n+j*3+0]; 
+       alpha_yy += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+          n+j*3+1];
+       alpha_yz += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+          n+j*3+2]; 
+       alpha_zx += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+ n4plus1+ n+j*3+0]; 
+       alpha_zy += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+ n4plus1+ n+j*3+1]; 
+       alpha_zz += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+ n4plus1+ n+j*3+2];
+       temp += InvA[i*n4plus1+n+3*j+0];
+    }
+  } 
+ cout<<"---Polarizability  -------"<<endl;
+ cout<<"alpha_xx = "<<alpha_xx<<endl;
+ cout<<"alpha_yy = "<<alpha_yy<<endl;
+ cout<<"alpha_zz = "<<alpha_zz<<endl;
+ cout<<"alpha_xy = "<<alpha_xy<<endl;
+ cout<<"alpha_yx = "<<alpha_yx<<endl;
+ cout<<"alpha_xz = "<<alpha_xz<<endl;
+ cout<<"alpha_zx = "<<alpha_zx<<endl;
+ cout<<"alpha_yz = "<<alpha_yz<<endl;
+ cout<<"alpha_zy = "<<alpha_zy<<endl;
+}
+
+// For the Sum
+else if (AlphaComp == 4){
+  for (int j = 0; j < n; ++j){
+    for (int i = 0; i < n; ++i){ 
+       alpha_xx += InvA[n4plus1*i+j]*R[3*i+0]*R[3*j+0];
+       alpha_xy += InvA[n4plus1*i+j]*R[3*i+0]*R[3*j+1];
+       alpha_xz += InvA[n4plus1*i+j]*R[3*i+0]*R[3*j+2];
+       alpha_yx += InvA[n4plus1*i+j]*R[3*i+1]*R[3*j+0];
+       alpha_yy += InvA[n4plus1*i+j]*R[3*i+1]*R[3*j+1];
+       alpha_yz += InvA[n4plus1*i+j]*R[3*i+1]*R[3*j+2];
+       alpha_zx += InvA[n4plus1*i+j]*R[3*i+2]*R[3*j+0];
+       alpha_zy += InvA[n4plus1*i+j]*R[3*i+2]*R[3*j+1];
+       alpha_zz += InvA[n4plus1*i+j]*R[3*i+2]*R[3*j+2];
+ 
+       alpha_xx -= 2*InvA[n*n4plus1+j*3*n4plus1                  +i]*R[3*i+0]; 
+       alpha_xy -= 2*InvA[n*n4plus1+j*3*n4plus1                  +i]*R[3*i+1]; 
+       alpha_xz -= 2*InvA[n*n4plus1+j*3*n4plus1                  +i]*R[3*i+2]; 
+       alpha_yx -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1         +i]*R[3*i+0]; 
+       alpha_yy -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1         +i]*R[3*i+1]; 
+       alpha_yz -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1         +i]*R[3*i+2]; 
+       alpha_zx -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1+ n4plus1+i]*R[3*i+0]; 
+       alpha_zy -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1+ n4plus1+i]*R[3*i+1]; 
+       alpha_zz -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1+ n4plus1+i]*R[3*i+2]; 
+       
+       alpha_xx += InvA[n*n4plus1+3*i*n4plus1 +                  n+j*3+0];
+       alpha_xy += InvA[n*n4plus1+3*i*n4plus1 +                  n+j*3+1]; 
+       alpha_xz += InvA[n*n4plus1+3*i*n4plus1 +                  n+j*3+2]; 
+       alpha_yx += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+          n+j*3+0]; 
+       alpha_yy += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+          n+j*3+1];
+       alpha_yz += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+          n+j*3+2]; 
+       alpha_zx += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+ n4plus1+ n+j*3+0]; 
+       alpha_zy += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+ n4plus1+ n+j*3+1]; 
+       alpha_zz += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+ n4plus1+ n+j*3+2];
+       
+       temp += InvA[i*n4plus1+n+3*j+0];
+    }
+  } 
+ cout<<"---Polarizability  -------"<<endl;
+ cout<<"alpha_xx = "<<alpha_xx<<endl;
+ cout<<"alpha_yy = "<<alpha_yy<<endl;
+ cout<<"alpha_zz = "<<alpha_zz<<endl;
+ cout<<"alpha_xy = "<<alpha_xy<<endl;
+ cout<<"alpha_yx = "<<alpha_yx<<endl;
+ cout<<"alpha_xz = "<<alpha_xz<<endl;
+ cout<<"alpha_zx = "<<alpha_zx<<endl;
+ cout<<"alpha_yz = "<<alpha_yz<<endl;
+ cout<<"alpha_zy = "<<alpha_zy<<endl;
+}
+
+
+else if (AlphaComp != 1 || AlphaComp != 2 || AlphaComp != 3 || AlphaComp != 4){
+  cout<<"! ! ! ! A non-applicable flag was used for AlphaComp. The Sum of all components is being calculated. Here are the options, if needed please modify your input flag: ! ! ! !"<<endl;
+  cout<<"AlphaComp = 1: Charge Flow Only"<<endl;
+  cout<<"AlphaComp = 2: Cross Term Only"<<endl;
+  cout<<"AlphaComp = 3: Induced Dipole Only"<<endl;
+  cout<<"AlphaComp = 4: Sum of all terms (Default)"<<endl;
+  for (int j = 0; j < n; ++j){
+    for (int i = 0; i < n; ++i){ 
+       alpha_xx += InvA[n4plus1*i+j]*R[3*i+0]*R[3*j+0];
+       alpha_xy += InvA[n4plus1*i+j]*R[3*i+0]*R[3*j+1];
+       alpha_xz += InvA[n4plus1*i+j]*R[3*i+0]*R[3*j+2];
+       alpha_yx += InvA[n4plus1*i+j]*R[3*i+1]*R[3*j+0];
+       alpha_yy += InvA[n4plus1*i+j]*R[3*i+1]*R[3*j+1];
+       alpha_yz += InvA[n4plus1*i+j]*R[3*i+1]*R[3*j+2];
+       alpha_zx += InvA[n4plus1*i+j]*R[3*i+2]*R[3*j+0];
+       alpha_zy += InvA[n4plus1*i+j]*R[3*i+2]*R[3*j+1];
+       alpha_zz += InvA[n4plus1*i+j]*R[3*i+2]*R[3*j+2];
+ 
+       alpha_xx -= 2*InvA[n*n4plus1+j*3*n4plus1                  +i]*R[3*i+0]; 
+       alpha_xy -= 2*InvA[n*n4plus1+j*3*n4plus1                  +i]*R[3*i+1]; 
+       alpha_xz -= 2*InvA[n*n4plus1+j*3*n4plus1                  +i]*R[3*i+2]; 
+       alpha_yx -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1         +i]*R[3*i+0]; 
+       alpha_yy -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1         +i]*R[3*i+1]; 
+       alpha_yz -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1         +i]*R[3*i+2]; 
+       alpha_zx -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1+ n4plus1+i]*R[3*i+0]; 
+       alpha_zy -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1+ n4plus1+i]*R[3*i+1]; 
+       alpha_zz -= 2*InvA[n*n4plus1+j*3*n4plus1+ n4plus1+ n4plus1+i]*R[3*i+2]; 
+       
+       alpha_xx += InvA[n*n4plus1+3*i*n4plus1 +                  n+j*3+0];
+       alpha_xy += InvA[n*n4plus1+3*i*n4plus1 +                  n+j*3+1]; 
+       alpha_xz += InvA[n*n4plus1+3*i*n4plus1 +                  n+j*3+2]; 
+       alpha_yx += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+          n+j*3+0]; 
+       alpha_yy += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+          n+j*3+1];
+       alpha_yz += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+          n+j*3+2]; 
+       alpha_zx += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+ n4plus1+ n+j*3+0]; 
+       alpha_zy += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+ n4plus1+ n+j*3+1]; 
+       alpha_zz += InvA[n*n4plus1+3*i*n4plus1 +n4plus1+ n4plus1+ n+j*3+2];
+       
+       temp += InvA[i*n4plus1+n+3*j+0];
+    }
+  } 
+ cout<<"---Polarizability  -------"<<endl;
+ cout<<"alpha_xx = "<<alpha_xx<<endl;
+ cout<<"alpha_yy = "<<alpha_yy<<endl;
+ cout<<"alpha_zz = "<<alpha_zz<<endl;
+ cout<<"alpha_xy = "<<alpha_xy<<endl;
+ cout<<"alpha_yx = "<<alpha_yx<<endl;
+ cout<<"alpha_xz = "<<alpha_xz<<endl;
+ cout<<"alpha_zx = "<<alpha_zx<<endl;
+ cout<<"alpha_yz = "<<alpha_yz<<endl;
+ cout<<"alpha_zy = "<<alpha_zy<<endl;
+}
+}
 //////////////////////////////////////////////////////////////
 //
 //  build matrix A = (alpha^-1 - T)
