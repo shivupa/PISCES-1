@@ -6,6 +6,8 @@ cd build
 CC=mpicc \
 CXX=mpic++ \
 FC=mpifort \
-CXXFLAGS="-Wall -Wextra -O3" \
+CFLAGS="-Wall -Wextra" \
+CXXFLAGS="-Wall -Wextra" \
+FFLAGS="-Wall -Wextra" \
 cmake .. -DHAVE_ARPACK=1 -DHAVE_FFTW=1
 make
