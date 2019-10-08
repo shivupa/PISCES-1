@@ -1,4 +1,0 @@
-/ihome/kjordan/thc9/fermi/Development/smp_local/pisces/build/CMakeFiles/rebuild_cache.dir
-/ihome/kjordan/thc9/fermi/Development/smp_local/pisces/build/CMakeFiles/edit_cache.dir
-/ihome/kjordan/thc9/fermi/Development/smp_local/pisces/build/CMakeFiles/piscesf.dir
-/ihome/kjordan/thc9/fermi/Development/smp_local/pisces/build/CMakeFiles/pisces.dir
