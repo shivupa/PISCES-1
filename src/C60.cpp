@@ -118,6 +118,8 @@ void C60_sp(TSIN Input)
       PotPara[10] = Input.GetDouble("CsixtyPotential", "Rtol", 10.0) ; //extra nuclear charge
       PotPara[11] = Input.GetDouble("CsixtyPotential", "CarbonType", 1) ; //extra nuclear charge
 
+      PotPara[12] = Input.GetDouble("CsixtyPotential", "AlphaComp", 4) ; //A switch that determines which component of the Polarizability will be evaluated, 1 - charge flow, 2 - cross-term, 3 - Induced Dipole, 4 - Sum.
+      
       Input.GetIntArray("CsixtyPotential", "nAtomsArray", nAtomsArray, nMolecules);
       Input.GetDoubleArray("CsixtyPotential", "DipoleArray", DipoleArray, nMolecules);
       Input.GetDoubleArray("CsixtyPotential", "CenterArray", CenterArray, nMolecules*3);
@@ -389,6 +391,7 @@ void Potential::SetupFullerElec(int nr, const double *rSites, const double *PotP
   RepFlagCsixty =  PotPara[8] ; 
   Rtol =  PotPara[10] ; 
   CarbonType = PotPara[11] ;
+  AlphaComp = PotPara[12] ;
 
   AtomType  = new int[nr];
 
@@ -428,7 +431,7 @@ void Potential::SetupFullerElec(int nr, const double *rSites, const double *PotP
 
   if (PolFlagCsixty == 1 || PolFlagCsixty == 2 || PolFlagCsixty == 8) {
     MolPol[0].InvA.resize((4*nr + nFullerenes)*(4*nr + nFullerenes));
-    InvChargeDipolePol(nSites, &rSites[0], &MolPol[0].InvA[0], nFullerenes, &NoAtomsArray[0], CarbonType, IonType);
+    InvChargeDipolePol(nSites, &rSites[0], &MolPol[0].InvA[0], nFullerenes, &NoAtomsArray[0], CarbonType, IonType, AlphaComp);
    // for (int i=0;  i < (4*nr + nFullerenes)*(4*nr + nFullerenes); i++) 
    //    cout<<" MolPol[0].InvA[0] = "<< MolPol[0].InvA[i]<<endl;
     InterFullerPol = InterFullerPolPot(&EfieldOnAtoms[0]) ; 
@@ -447,7 +450,7 @@ void Potential::SetupFullerElec(int nr, const double *rSites, const double *PotP
 
    cout << "Start InvChargeDipolePol\n";
 
-    InvChargeDipolePol(nSites, &rSites[0], &MolPol[0].InvA[0], 1, &NoAtomsArray_pol3[0],CarbonType, IonType); 
+    InvChargeDipolePol(nSites, &rSites[0], &MolPol[0].InvA[0], 1, &NoAtomsArray_pol3[0],CarbonType, IonType, AlphaComp); 
   //  for (int i=0 ; i < (4*nr + 1)*(4*nr + 1) ; i++) 
    //    cout<<" MolPol[0].InvA[0] = "<< MolPol[0].InvA[i]<<endl;
     }

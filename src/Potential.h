@@ -193,6 +193,7 @@ private: // DATA MEMBERS
    
    // for the coronene 2
    int CarbonType;
+   int AlphaComp;
 
 
    // for SphericalPot

@@ -1,4 +1,4 @@
-void InvChargeDipolePol(int nSites, const double *R, double *InvA, int nFullerenes, const int *NoAtomsArray, int CarbonType, int *IonType);
+void InvChargeDipolePol(int nSites, const double *R, double *InvA, int nFullerenes, const int *NoAtomsArray, int CarbonType, int *IonType, int AlphaComp);
 void BuildPolarizationMatrix(int nSites, const double *R,  double *A, int nFullerenes, const int *NoAtomsArray, int CarbonType, int *IonType);
 void BuildPolarizationMatrix2(int nSites, const double *R,  double *A, int nFullerenes, const int *NoAtomsArray);
 void BuildPolarizationMatrix3(int nSites, const double *R,  double *A, int nFullerenes, const int *NoAtomsArray, int CarbonType, int *IonType);
