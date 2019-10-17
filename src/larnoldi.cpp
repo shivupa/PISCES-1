@@ -181,7 +181,7 @@ int DVR::larnoldi(int ng, int nev, int maxsub, int maxiter, int ptol, double *ev
   int nthreads, tid;
   int ido = 0;          // for the reverse communication interface
 
-  cout<<"define fft_engine"<<endl;
+  std::cout<<"define fft_engine"<<std::endl;
   class VectorFFT fft_engine(&n_1dbas[0]);
 //  cout<<"end define fft_engine"<<endl;
 
@@ -208,7 +208,7 @@ else {
  cout<<resid[i]<<endl;
  }
 */
-   if(rank==0)cout<<"DiagCount = "<<DiagCount<<endl;
+   if(rank==0)std::cout<<"DiagCount = "<<DiagCount<<std::endl;
 
   if(rank==0)std::cout << "dvrtype: " << dvrtype << std::endl;
 
@@ -357,7 +357,7 @@ if (DiagCount == 1 && icount%ncv ==2 ) {
       if(rank==0)printf("%3d  %21.14e  %15.8e\n", i+1, workl[ipntr[7] + i - 1], workl[ipntr[8] + i - 1]);
     }
   }
-  if(rank==0)cout<< "number of larnold iterations : "<<icount<<endl;
+  if(rank==0)std::cout<< "number of larnold iterations : "<<icount<<std::endl;
   std::copy(&v[0], &v[ng*nconv], wavefn.begin());
 
   return nconv;
