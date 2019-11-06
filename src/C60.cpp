@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <cmath>
-#include <cstring>
+#include <string>
 #include <vector>
 #include <iomanip>
 #include <fstream>
@@ -424,10 +424,8 @@ void Potential::SetupFullerElec(int nr, const double *rSites, const double *PotP
   cout<<"start SetMoleculeFields "<<endl;
   SetMoleculeFields( NoAtomsArray) ;
   MolPol = new DistributedPolarizabilities[1];
-  
 // for the coronene
- if (CarbonType != 1)  SetCoroneneGDMA() ;
-
+ if (CarbonType != 1) SetCoroneneGDMA() ;
 
   if (PolFlagCsixty == 1 || PolFlagCsixty == 2 || PolFlagCsixty == 8) {
     MolPol[0].InvA.resize((4*nr + nFullerenes)*(4*nr + nFullerenes));
@@ -684,8 +682,6 @@ for(int kk =0; kk< 60; kk++) {
 void Potential::SetCoroneneGDMA()
 {
 
-
-
    Q00.resize(nSites);
    Q20.resize(nSites);
    Q21c.resize(nSites);
@@ -711,39 +707,31 @@ void Potential::SetCoroneneGDMA()
    Q44c.resize(nSites);
    Q44s.resize(nSites);
 
-  char word,word2;
+  std::string word,word2;
   int rank ;
-  FILE * GDMA;
+  ifstream GDMA;
+  GDMA.open( "DBC.punch");
 
-  GDMA = fopen( "DBC.punch" , "r");
-
-  for(int kk =0; kk< 3; ++kk) {
-    fscanf(GDMA,"%[^\n]\n",&word);
+  for(int kk =0; kk< 4; ++kk) {
+    std::getline(GDMA,word);
   }
 
   for(int kk =0; kk< nSites; ++kk) {
-  //  fscanf(GDMA,"%s %lf %lf %lf %4s %d \n",&word, &coordX, &coordY, &coordZ,&word2, &rank);
-    fscanf(GDMA,"%[^\n]\n",&word);
+    std::getline(GDMA,word);
 
-   // fscanf(GDMA,"%[^\n]\n",&word);
-    fscanf(GDMA,"%lf \n",&Q00[kk]);
-    fscanf(GDMA,"%lf %lf %lf \n", &PtDip[3*kk+2], &PtDip[3*kk+0], &PtDip[3*kk+1]);
-    fscanf(GDMA,"%lf %lf %lf %lf %lf\n", &Q20[kk],&Q21c[kk],&Q21s[kk],&Q22c[kk],&Q22s[kk]);
+    GDMA >> Q00[kk];
+    GDMA >> PtDip[3*kk+2] >>  PtDip[3*kk+0] >>  PtDip[3*kk+1];
+    GDMA >> Q20[kk] >> Q21c[kk] >> Q21s[kk] >> Q22c[kk] >> Q22s[kk];
 
+    //printf("%.10lf %.10lf %.10lf \n",coordX, coordY, coordZ);
+    //printf("Q00 : %.10lf \n",Q00[kk]);
+    //printf(" PtDip %.10lf %.10lf %.10lf \n", PtDip[3*kk+0], PtDip[3*kk+1], PtDip[3*kk+2]);
+    //printf(" Q20 ~~ %.10lf %.10lf %.10lf %.10lf %.10lf\n", Q20[kk],Q21c[kk],Q21s[kk],Q22c[kk],Q22s[kk]);
 
-
-/*
-    printf("%.10lf %.10lf %.10lf \n",coordX, coordY, coordZ);
-    printf("Q00 : %.10lf \n",Q00[kk]);
-    printf(" PtDip %.10lf %.10lf %.10lf \n", PtDip[3*kk+0], PtDip[3*kk+1], PtDip[3*kk+2]);
-    printf(" Q20 ~~ %.10lf %.10lf %.10lf %.10lf %.10lf\n", Q20[kk],Q21c[kk],Q21s[kk],Q22c[kk],Q22s[kk]);
-*/
-
-
-    fscanf(GDMA,"%lf %lf %lf %lf %lf\n", &Q30[kk],&Q31c[kk],&Q31s[kk],&Q32c[kk],&Q32s[kk]);
-    fscanf(GDMA,"%lf %lf \n", &Q33c[kk],&Q33s[kk]);
-    fscanf(GDMA,"%lf %lf %lf %lf %lf\n", &Q40[kk],&Q41c[kk],&Q41s[kk],&Q42c[kk],&Q42s[kk]);
-    fscanf(GDMA,"%lf %lf %lf %lf \n", &Q43c[kk],&Q43s[kk], &Q44c[kk], &Q44s[kk]);
+    GDMA >> Q30[kk] >> Q31c[kk] >> Q31s[kk] >> Q32c[kk] >> Q32s[kk];
+    GDMA >> Q33c[kk] >> Q33s[kk];
+    GDMA >> Q40[kk] >> Q41c[kk] >> Q41s[kk] >> Q42c[kk] >> Q42s[kk];
+    GDMA >> Q43c[kk] >> Q43s[kk] >> Q44c[kk] >> Q44s[kk];
 
 /*
     printf(" Q30 ~~ %.10lf %.10lf %.10lf %.10lf %.10lf\n", Q30[kk],Q31c[kk],Q31s[kk],Q32c[kk],Q32s[kk]);
@@ -752,14 +740,11 @@ void Potential::SetCoroneneGDMA()
     printf(" Q43 ~~ %.10lf %.10lf %.10lf %.10lf\n", Q43c[kk],Q43s[kk], Q44c[kk],Q44s[kk]);
 */
 
-    for(int i =0; i< 3; ++i) {
-     fscanf(GDMA,"%[^\n]\n",&word);
+    for(int i =0; i< 5; ++i) {
+      std::getline(GDMA,word);
     } 
 
   }
-
- fclose (GDMA);
-
 }
 
 
