@@ -85,11 +85,11 @@ double randm11(void);
 
 
 //////////////////////////////////////////////////////////////////////////////////
-//
-//  PotFit:
-//
-//
-//
+///
+///  PotFit:
+///
+///
+///
 void potfit(const dVec& WaterCoor0, const Parameters& InP)
 {
   cout << "=======================================================================================\n";
@@ -374,13 +374,13 @@ void potfit(const dVec& WaterCoor0, const Parameters& InP)
 
 
 ////////////////////////////////////////////////////////////////////////////
-//
-//  double chisquared(double *fitpara) given to simplex or Powell minimizers
-//
-//  ChiOutput = 0   no output
-//              1   output for table
-//              3   debug output
-//
+///
+///  double chisquared(double *fitpara) given to simplex or Powell minimizers
+///
+///  ChiOutput = 0   no output
+///              1   output for table
+///              3   debug output
+///
 double chisquared(double *fitpara)
 {
 
@@ -443,12 +443,12 @@ double chisquared(double *fitpara)
 
 
 ////////////////////////////////////
-//
-//  chi**2 of a DVR and a EOM or ADC cube with npts points
-//  both files are orbitals; 
-//  the difference of the densities is computed, i.e., the orbitals are squared
-//  therefore the difference itself is not again squared, but just fabsed 
-//
+///
+///  chi**2 of a DVR and a EOM or ADC cube with npts points
+///  both files are orbitals; 
+///  the difference of the densities is computed, i.e., the orbitals are squared
+///  therefore the difference itself is not again squared, but just fabsed 
+///
 double ComputeChiSquared(int npts, double *dvrcube, double *eomcube, double *weights)
 {
   double chisq = 0;
@@ -465,15 +465,15 @@ double ComputeChiSquared(int npts, double *dvrcube, double *eomcube, double *wei
 
 
 //////////////////////////////////////////////////////////
-//
-//  weights of the grid points for fitting
-//  - anything too close to an O, i.e., < 2 Bohr must have weight=0 (EOM NO oscillates)
-//  - anything too far cannot have a large weight owing to the different boundary
-//    conditions in DVR and GTO wavefunctions
-//
-//
-//  for dO between Low and High cutoffs  w = dO^exponent
-//
+///
+///  weights of the grid points for fitting
+///  - anything too close to an O, i.e., < 2 Bohr must have weight=0 (EOM NO oscillates)
+///  - anything too far cannot have a large weight owing to the different boundary
+///    conditions in DVR and GTO wavefunctions
+///
+///
+///  for dO between Low and High cutoffs  w = dO^exponent
+///
 void ComputeWeights(const int *ngrid, const double *x0, const double *steplen, 
 		    int nWaters, const double *WaterCoor, 
 		    double *weights, const double *eomcube,
@@ -537,18 +537,18 @@ void ComputeWeights(const int *ngrid, const double *x0, const double *steplen,
 
 
 //////////////////////////////////////////////////////////////////
-//
-// get random number in [0,1)
-//
+///
+/// get random number in [0,1)
+///
 double rand01(void)
 {
   return double(rand()) / (RAND_MAX + 1.0);
 }
 
 /////////////////////////////////////////
-//
-// get random number in (-1,1)
-//
+///
+/// get random number in (-1,1)
+///
 double randm11(void)
 {
   if (rand() > RAND_MAX/2)

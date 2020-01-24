@@ -1,13 +1,13 @@
-//    
-//     Driver for reverse-interface Davidson  
-//
-//     int ng      : number of grid points = matrix dimension
-//     int maxsub  : maximal subspace size in subspace iterations
-//     int maxiter : maximal no of macro-iterations (up to maxsub*maxiter mtx operations)
-//     int ptol    : convergence threshold = 10^-ptol
-//     int corrflag: which corrections vectors: 0, 1, or 2 see doc in Davidson.cpp
-//     double *ev  : computed energy
-//
+///   
+///    Driver for reverse-interface Davidson  
+///
+///    int ng      : number of grid points = matrix dimension
+///    int maxsub  : maximal subspace size in subspace iterations
+///    int maxiter : maximal no of macro-iterations (up to maxsub*maxiter mtx operations)
+///    int ptol    : convergence threshold = 10^-ptol
+///    int corrflag: which corrections vectors: 0, 1, or 2 see doc in Davidson.cpp
+///    double *ev  : computed energy
+///
 #include <cstdio>
 #include <cstdlib>
 #include <cmath>
@@ -23,7 +23,7 @@
 
 using namespace std;
 
-// keep a local copy of the class variables so this function may be useful outside of class DVR at some point 
+/// keep a local copy of the class variables so this function may be useful outside of class DVR at some point 
 
 int DVR::davdriver(int ng, int nstates, int maxsub, int maxiter, int ptol, int corrflag, double *ev)
 {

@@ -36,10 +36,10 @@ using namespace std;
 
 
 ///////////////////////////////////////////////
-//
-//  single point for C60-electron
-//  has so far just the VEA
-//
+///
+///  single point for C60-electron
+///  has so far just the VEA
+///
 void SphericalPotential(TSIN Input)
 {
 

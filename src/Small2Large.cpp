@@ -2,16 +2,16 @@
 #include <math.h>
 using namespace std;
 
-//
-//  this takes a wavefunction on a small grid n[3], xmin[3], dx[3], wf[] 
-//  and creates a rough image on a large grid (capitals) to be used 
-//  as a startvector for a Lanczos or Davidson
-//
-//  this can easily be extended to find the nearest 8 indices (ixl, ixu, iyl, ...)
-//  and compute a weighted average of those 8 points
-//  however, for a start vector a bit of random noise seems more healthy
-//
-//
+///
+///  this takes a wavefunction on a small grid n[3], xmin[3], dx[3], wf[] 
+///  and creates a rough image on a large grid (capitals) to be used 
+///  as a startvector for a Lanczos or Davidson
+///
+///  this can easily be extended to find the nearest 8 indices (ixl, ixu, iyl, ...)
+///  and compute a weighted average of those 8 points
+///  however, for a start vector a bit of random noise seems more healthy
+///
+///
 void Small2Large(int *n, double *xmin, double *dx, double *wf,
 		 int *N, double *XMIN, double *DX, double *WF)
 {

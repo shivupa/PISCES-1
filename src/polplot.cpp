@@ -43,11 +43,11 @@ using namespace std;
 
 
 //////////////////////////////////////////////////////////
-//
-//  common-block-like structure used by
-//  optimize Optimizer(), single_point(), GetClusterEnergy(), GetAnalGrad(), and, GetNumGrad()
-//  the one reason to use this construct is the lbfgs fortran function employed
-//
+///
+///  common-block-like structure used by
+///  optimize Optimizer(), single_point(), GetClusterEnergy(), GetAnalGrad(), and, GetNumGrad()
+///  the one reason to use this construct is the lbfgs fortran function employed
+///
 namespace {
   int nMolecules;
   Molecule *Molecules;
@@ -64,9 +64,9 @@ namespace {
 
 
 ///////////////////////////////////////////////////////////////////
-//
-//  Compute the energy at a single point specified in WaterPos
-//
+///
+///  Compute the energy at a single point specified in WaterPos
+///
 void polplot(const dVec WaterPos, const Parameters InP)
 {
 

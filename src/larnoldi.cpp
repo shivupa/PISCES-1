@@ -1,9 +1,9 @@
-//    
-//     Driver for Lanczos-Arnoldi using the ARPACK  
-//     
-//     many variable names are consistent with the examples provided with the ARPACK library
-//
-//
+///   
+///    Driver for Lanczos-Arnoldi using the ARPACK  
+///    
+///    many variable names are consistent with the examples provided with the ARPACK library
+///
+///
 
 #include <cstdio>
 #include <cstdlib>

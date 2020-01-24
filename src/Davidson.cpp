@@ -1,22 +1,22 @@
-/////////////////////////////////////////////////////////////////////////////
-//
-//   Davidson 
-//  
-//   multi-root, reverse interface
-//
-//   for the notation of the variables:
-//
-//   we try to compute eigenpairs of the matrix H
-//
-//   a basis set B (column vectors of length ndim) is iteratively build up 
-//   Z = HB are the vectors produced by applying H to the basis vectors
-//   S = BtHB = BtZ is the representation of H in the subspace spanned by B
-//   V are the eigenvectors of S
-//
-//   then the eigenvalues of S are approximations for the eigenvectors of H
-//   and BV are the associated approximations for the eigenvectors of H
-//
-//
+///////////////////////////////////////////////////////////////////////////////
+///
+///   Davidson 
+///  
+///   multi-root, reverse interface
+///
+///   for the notation of the variables:
+///
+///   we try to compute eigenpairs of the matrix \f$H\f$
+///
+///   a basis set \f$B\f$ (column vectors of length ndim) is iteratively build up 
+///   \f$Z = HB\f$ are the vectors produced by applying \f$H\f$ to the basis vectors
+///   \f$S = BtHB = BtZ \f$ is the representation of \f$H\f$ in the subspace spanned by \f$B\f$
+///   \f$V\f$ are the eigenvectors of \f$S\f$
+///
+///   then the eigenvalues of \f$S\f$ are approximations for the eigenvectors of \f$H\f$
+///   and \f$BV\f$ are the associated approximations for the eigenvectors of \f$H\f$
+///
+///////////////////////////////////////////////////////////////////////////////
 #include <cstdio>
 #include <cstdlib>
 #include <cmath>
@@ -37,11 +37,12 @@ void DavidsonCorrectionVector(int ndim, double lambda, double *res_vec, double *
 using namespace std;
 
 
-////////////////////////////////////////////
-//
-//   compute size of work array needed 
-//   see Davidson code comments where davwork assigments are made 
-//
+///////////////////////////////////////////////////////////////////////////////
+///
+///   compute size of work array needed 
+///   see Davidson code comments where davwork assigments are made 
+///
+///////////////////////////////////////////////////////////////////////////////
 int DavidsonWorkSize(int ndim, int maxsub, int nroots, int corrflag)
 {
   if (corrflag == 2)
@@ -51,83 +52,86 @@ int DavidsonWorkSize(int ndim, int maxsub, int nroots, int corrflag)
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////
-//
-//  wasteful Davidson: still experimental stage, I want to keep it all,
-//  because what used to work great for CI matrices sucks for grids 
-//
-int Davidson(int ndim,        // dimension of H, length of vectors in B and Z
-	     int maxsub,      // max subspace dimension
-	     int nroots,      // no of roots of H to be found
-	     int maxmacro,    // max no of macro iterations
-	     int tol,         // norm of ritz vectors must be below 10^-tol
-	     int corrflag,    // correction vector flag (see below)
-	     int verbose,     // verbocity level
-             double *evals,   // returns converged eigenvalues
-	     int &nConv,      // returns number of converged eigenpairs
-	     double *B,       // space for basis set build by Davidson iteration
-	     double *Z,       // space for H*B vectors
-	     double *diag,    // diag(H) for Davidson correction vectors
-	     double *davwork, // work space for subspace arrays and ritz vectors 
-	     int *inout)      // communication codes with the reverse interface
-//
-//  startvectors are on input in B
-//  on output converged ritzvectors are put into B
-//
-//
-//   corrflag = 0  the residual vector is added to B: effectively Lanczos-Arnoldi
-//            = 1  standard Davidson correction vector
-//            = 2  zeroth-order Jacobi-Davidson correction
-//
-//      more expensive correction vectors usually mean fewer matrix-times-vector calls
-//      where the best tradeoff is case dependent, and a matter of experimentation
-//      do not expect the same miracles the Davidson does for GTO sets for grids 
-//
-//   davwork will hold the following arrays
-//
-//    S = new double [maxsubspace * maxsubspace];
-//    V = new double [maxsubspace * maxsubspace];
-//    Work = new double[lwork];   lwork = 10*maxsub
-//    sse = new double[maxsubspace];
-//    ritzvec  = new double[ndim];
-//    if (jdflag == 1) jdvec = new double[ndim];
-//
-//    size of davwork is 2M^2 + 11M + N (+N for jdflag) 
-//    this is computed in DavidsonWorkSize()
-//
-//    internal status
-//      0 : first call, initialize dimensions, set pointers, normalize startvectors, and switch status to 1
-//      1 : standard
-//
-//   return codes:   0: done; converged (eval and B return the converged eigenpairs) or maxmacro exceeded
-//                            the number of converged vectors is returned in inout[0]
-//                            if maxmacro is exceeded a list of current convergence infromation is printed
-//                   1: call Matrix-times-vector, i.e., Z[..] := H * B[..]  
-//
-//
+///////////////////////////////////////////////////////////////////////////////
+///
+///  wasteful Davidson: still experimental stage, I want to keep it all,
+///  because what used to work great for CI matrices sucks for grids 
+///
+///////////////////////////////////////////////////////////////////////////////
+int Davidson(int ndim,        /// dimension of H, length of vectors in B and Z
+	     int maxsub,      /// max subspace dimension
+	     int nroots,      /// no of roots of H to be found
+	     int maxmacro,    /// max no of macro iterations
+	     int tol,         /// norm of ritz vectors must be below 10^-tol
+	     int corrflag,    /// correction vector flag (see below)
+	     int verbose,     /// verbocity level
+             double *evals,   /// returns converged eigenvalues
+	     int &nConv,      /// returns number of converged eigenpairs
+	     double *B,       /// space for basis set build by Davidson iteration
+	     double *Z,       /// space for H*B vectors
+	     double *diag,    /// diag(H) for Davidson correction vectors
+	     double *davwork, /// work space for subspace arrays and ritz vectors 
+	     int *inout)      /// communication codes with the reverse interface
+///////////////////////////////////////////////////////////////////////////////
+///
+///  startvectors are on input in B
+///  on output converged ritzvectors are put into B
+///
+///
+///   corrflag = 0  the residual vector is added to B: effectively Lanczos-Arnoldi
+///            = 1  standard Davidson correction vector
+///            = 2  zeroth-order Jacobi-Davidson correction
+///
+///      more expensive correction vectors usually mean fewer matrix-times-vector calls
+///      where the best tradeoff is case dependent, and a matter of experimentation
+///      do not expect the same miracles the Davidson does for GTO sets for grids 
+///
+///   davwork will hold the following arrays
+///
+///    S = new double [maxsubspace * maxsubspace];
+///    V = new double [maxsubspace * maxsubspace];
+///    Work = new double[lwork];   lwork = 10*maxsub
+///    sse = new double[maxsubspace];
+///    ritzvec  = new double[ndim];
+///    if (jdflag == 1) jdvec = new double[ndim];
+///
+///    size of davwork is 2M^2 + 11M + N (+N for jdflag) 
+///    this is computed in DavidsonWorkSize()
+///
+///    internal status
+///      0 : first call, initialize dimensions, set pointers, normalize startvectors, and switch status to 1
+///      1 : standard
+///
+///   return codes:   0: done; converged (eval and B return the converged eigenpairs) or maxmacro exceeded
+///                            the number of converged vectors is returned in inout[0]
+///                            if maxmacro is exceeded a list of current convergence infromation is printed
+///                   1: call Matrix-times-vector, i.e., Z[..] := H * B[..]  
+///
+///
+///////////////////////////////////////////////////////////////////////////////
 {
 
   static int mystatus = 0;
   static double thresh = std::pow(10.,-tol);
 
-  static double *rcvec, *ssvec;  // these are truly pointers to existing blocks
+  static double *rcvec, *ssvec;  /// these are truly pointers to existing blocks
   static int lwork = 0;
 
-  static int jmacro = 0;     // no of macro iterations done
-  static int nsubspace = 0;  // current number of subspace vectors
-  static int nnewBs = 0;     // number of vectors selected for the next iterations
-  static int nnewZs = 0;     // number of vectors just procecessed by mtx
-  static int newBmax = 1;    // use nroots for GTO tasks (startspace is meaningful ); 
-                             // use 1 for grids (startspace could as well be random)
+  static int jmacro = 0;     /// no of macro iterations done
+  static int nsubspace = 0;  /// current number of subspace vectors
+  static int nnewBs = 0;     /// number of vectors selected for the next iterations
+  static int nnewZs = 0;     /// number of vectors just procecessed by mtx
+  static int newBmax = 1;    /// use nroots for GTO tasks (startspace is meaningful ); 
+                             /// use 1 for grids (startspace could as well be random)
   
-  static int one = 1;        // arguments for 
-  static double done = 1.0;  // BLAS and LAPACK 
-  static double dzro = 0.0;  // functions
+  static int one = 1;        /// arguments for 
+  static double done = 1.0;  /// BLAS and LAPACK 
+  static double dzro = 0.0;  /// functions
 
-  static dVec residuals;     // residuals |r| = norm of residual vectors of each root
-  static dVec conv_weights;  // weight of each subspace vector with already converged space
-  static iVec ccode;         // ritz-vector is converged (0),  newly converged (1), or unconverged (2)
-  static iVec Bindex;        // where in B the ritz vector is put when a marco iteration is started
+  static dVec residuals;     /// residuals |r| = norm of residual vectors of each root
+  static dVec conv_weights;  /// weight of each subspace vector with already converged space
+  static iVec ccode;         /// ritz-vector is converged (0),  newly converged (1), or unconverged (2)
+  static iVec Bindex;        /// where in B the ritz vector is put when a marco iteration is started
 
   // pointers to main internal arrays; these are in davwork
   static double *S = 0;
@@ -371,12 +375,13 @@ int Davidson(int ndim,        // dimension of H, length of vectors in B and Z
   } // end of the big while loop
 }
 
-///////////////////////////////////////////////////////////////////////////////////
-//
-//   Below is the old code; one needs to compute only the new elements of S, but 
-//   as long as B and Z are in memory anyway, recomputing all of S may even be faster
-//   and for trying to build a block-algorithm this is a safe fall-back
-//
+///////////////////////////////////////////////////////////////////////////////
+///
+///   Below is the old code; one needs to compute only the new elements of S, but 
+///   as long as B and Z are in memory anyway, recomputing all of S may even be faster
+///   and for trying to build a block-algorithm this is a safe fall-back
+///
+///////////////////////////////////////////////////////////////////////////////
 void ComputeS(int ndim, int nsubsp, int nadd, int maxsubsp, double *B, double *Z, double *S, int verbose)
 {
   double dzero = 0.0;
@@ -433,11 +438,12 @@ void ComputeS(int ndim, int nsubsp, int nadd, int maxsubsp, double *B, double *Z
 
 
 
-////////////////////////////////////////////////////////////////////////
-//
-//  orthonormalize the vector vec wrt the basis B
-//  it is done twice as the Davidson by construction produces near linear dependent vectors
-//
+///////////////////////////////////////////////////////////////////////////////
+///
+///  orthonormalize the vector vec wrt the basis \f$B\f$
+///  it is done twice as the Davidson by construction produces near linear dependent vectors
+///
+///////////////////////////////////////////////////////////////////////////////
 void OrthoVecOnB(int ndim, int nbas, double *vec, double *B, int verbose)
 {
   if (nbas == 0) 
@@ -468,10 +474,11 @@ void OrthoVecOnB(int ndim, int nbas, double *vec, double *B, int verbose)
 }
 
 
-////////////////////////////////////////////////////////////////////////
-//
-//  Gram-Schmidt orthonormalize a set of vectors
-//
+///////////////////////////////////////////////////////////////////////////////
+///
+///  Gram-Schmidt orthonormalize a set of vectors
+///
+///////////////////////////////////////////////////////////////////////////////
 void GramSchmidt(int ndim, int nvec, double *vec, int verbose)
 {
   const double RepeatIt = 2;
@@ -507,15 +514,19 @@ void GramSchmidt(int ndim, int nvec, double *vec, int verbose)
 }
 
 
-// simple Jacobi-Davidson correction vector 
-//
-//  c = -M r + f M u
-//
-//  M is the inverse of diag(H)-lambda as used in standard Davidson
-//  r is the residual vector, u is the current ritz vector
-//  f = (u,Mr)/(u,Mu)
-//
-//  rcvec = -M r;  rjvec = M u
+///////////////////////////////////////////////////////////////////////////////
+/// simple Jacobi-Davidson correction vector 
+///
+///  \f[
+///  c = -M r + f M u
+///  \f]
+///
+///  \f$M\f$ is the inverse of \f$\mathrm{diag}(H)-\lambda\f$ as used in standard Davidson
+///  \f$r\f$ is the residual vector, \f$u\f$ is the current ritz vector
+///  \f$f = (u,Mr)/(u,Mu)\f$
+///
+///  \f$rcvec = -M r\f$;  \f$rjvec = M u\f$
+///////////////////////////////////////////////////////////////////////////////
 void DavidsonJacobiCorrectionVector(int ndim, 
 				    double lambda, 
 				    double *res_vec,
@@ -537,10 +548,12 @@ void DavidsonJacobiCorrectionVector(int ndim,
   daxpy(&ndim, &fjd, jd_vec, &one, res_vec, &one);
 }
 
-//
-// standard Davidson correction vector    
-//  c = (lamda0-diag(H))^(-1) r
-//
+///////////////////////////////////////////////////////////////////////////////
+///
+/// standard Davidson correction vector    
+///  \f$c = (\lambda_0-\mathrm{diag}(H))^{-1} r\f$
+///
+///////////////////////////////////////////////////////////////////////////////
 void DavidsonCorrectionVector(int ndim, double lambda, double *res_vec, double *diagH) 
 {
   double shift = 1e-12;

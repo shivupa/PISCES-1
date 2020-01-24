@@ -26,16 +26,16 @@ void CalcDDTensor(double *T, double *Rij, double alpha_i, double alpha_j, double
 void InvertMatrix(int n, double *A);
 
 //////////////////////////////////////////////////////////////
-//
-//   InvA = (alpha^-1 - T)^-1 
-//
-//   this is the matrix that can be multiplied with the electric field at
-//   the polarizable sites to yield the induced dipoles:
-//
-//   mu = InvA * E
-//
-//   dim(A) = 3*nSiyes x 3*nSites
-//
+///
+///   \f$A^{-1} = (\alpha^{-1} - T)^{-1}\f$ 
+///
+///   this is the matrix that can be multiplied with the electric field at
+///   the polarizable sites to yield the induced dipoles:
+///
+///   \f$\mu = A^{-1} * E\f
+///
+///   dim(A) = 3*nSites x 3*nSites
+///
 void ComputeInvA(int nSites, const double *R, const double *alpha, double aThole, double *InvA, int verbose)
 {
 
@@ -79,24 +79,24 @@ void ComputeInvA(int nSites, const double *R, const double *alpha, double aThole
 
 
 //////////////////////////////////////////////////////////////
-//
-//  build matrix A = (alpha^-1 - T)
-//
-//  this is a super matrix
-//  each diagonal 3x3 block has alpha^-1 on its diagonal
-//  each off-diagonal 3x3 block is the dipole-dipole tensor Tij
-//  as each Tij block is symmetric, the whole matrix is symmetric 
-//
-//   dim(A) = 3*nSiyes x 3*nSites
-//
-//   input:  nSites        : no of point polarizable atoms
-//           R[3*nSites]   : position of sites
-//           alpha[nSites] : atomic polarizabilities
-//           aThole        : Thole's damping parameter
-//   output: A       
-//
-//   calls: CalcDDTensor() 
-//
+///
+///  build matrix \f$A = (\alpha^{-1} - T)\f$
+///
+///  this is a super matrix
+///  each diagonal 3x3 block has \f$\alpha^{-1}\f$ on its diagonal
+///  each off-diagonal 3x3 block is the dipole-dipole tensor \f$T_{ij}\f$
+///  as each \f$T_{ij}\f$ block is symmetric, the whole matrix is symmetric 
+///
+///   dim(A) = 3*nSites x 3*nSites
+///
+///   input:  nSites        : no of point polarizable atoms
+///           R[3*nSites]   : position of sites
+///           alpha[nSites] : atomic polarizabilities
+///           aThole        : Thole's damping parameter
+///   output: A       
+///
+///   calls: CalcDDTensor() 
+///
 void BuildPolarizationMatrix(int nSites, const double *R, const double *alpha, double aThole, double *A)
 {
 
@@ -258,9 +258,9 @@ void SCF_inducedDipole(int nSites, const double *Tensor, const double *alpha, do
 
 
 /////////////////////////////////////////////////
-//
-//  symmetric matrix A is inverted in place
-//
+///
+///  symmetric matrix A is inverted in place
+///
 void InvertMatrix(int n, double *A)
 {
 
@@ -294,20 +294,20 @@ void InvertMatrix(int n, double *A)
 
 
 /////////////////////////////////////////////////////////////////////////
-// 
-//  compute tensor for dipole-dipole interaction
-// 
-//  T is stored in fortran convention, that is, by column, T[0]=T11, T[1]=T21
-//  0 3 6
-//  1 4 7
-//  2 5 8
-//
-//  Rij[3] is the vector from dipole-j to site-i (where it acts on dipole-i)  
-//  OORij3 = 1/r_ij^3
-//  OORij5 = 1/r_ij^5
-//  f3 and f5 are Thole-type damping functions
-//
-//  
+/// 
+///  compute tensor for dipole-dipole interaction
+/// 
+///  T is stored in fortran convention, that is, by column, T[0]=T11, T[1]=T21
+///  0 3 6
+///  1 4 7
+///  2 5 8
+///
+///  Rij[3] is the vector from dipole-j to site-i (where it acts on dipole-i)  
+///  OORij3 = 1/r_ij^3
+///  OORij5 = 1/r_ij^5
+///  f3 and f5 are Thole-type damping functions
+///
+///  
 void CalcDDTensor(double *T, double *Rij, double alpha_i, double alpha_j, double aThole)
 {
 
