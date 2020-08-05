@@ -395,7 +395,7 @@ void Potential::SetupFullerElec(int nr, const double *rSites, const double *PotP
 
   AtomType  = new int[nr];
 
-  for (int i; i < nr; i++)
+  for (int i=0; i < nr; i++)
   AtomType[i]=IonType[i];
 
   nAtomsArray.resize(nFullerenes) ;
