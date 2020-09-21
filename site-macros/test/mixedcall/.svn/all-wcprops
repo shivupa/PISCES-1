@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/site-macros/!svn/ver/19/trunk/test/mixedcall
+END
+main.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/site-macros/!svn/ver/19/trunk/test/mixedcall/main.cxx
+END
+sub.f90
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/site-macros/!svn/ver/12/trunk/test/mixedcall/sub.f90
+END
+fun.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/site-macros/!svn/ver/12/trunk/test/mixedcall/fun.cxx
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/site-macros/!svn/ver/12/trunk/test/mixedcall/CMakeLists.txt
+END

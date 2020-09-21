@@ -1,0 +1,63 @@
+#!/bin/bash
+
+scr=W6.AA
+workdir=/scr/thomas/$scr
+currdir=$PWD
+
+if [ ! -d $workdir ]
+then
+	mkdir $workdir
+else
+	rm -rf $workdir/*
+fi
+cd $workdir
+
+
+#
+#  this is about orbital 31
+#  to get the extent of the grid right, play with 100^3 pts
+#  to get good binning use 4 or better 5 steps per Bohr
+#
+
+
+stem=eom
+n=31
+
+molden=$stem.molden
+cubefile=$stem.cub
+
+cp $currdir/$molden $workdir/
+
+cat > m2c.input << EOF
+BeginInput
+
+MoldenFile = "$molden",
+CubeFile   = "$cubefile",
+
+Orbital = $n,
+
+Xmin = -24.0,
+Ymin = -24.0,
+Zmin = -24.0,
+
+Xmax =  24.0,
+Ymax =  24.0,
+Zmax =  24.0,
+
+XSteps = 480,
+YSteps = 480,
+ZSteps = 480,
+
+EndInput
+EOF
+
+time mol2cub m2c.input
+
+#
+#  the edna file has the <r_nearest> and r_gy 
+#  the bins file has the columns for gnuplot
+#
+edna $cubefile $stem.$n.bins > $stem.$n.edna
+cp $stem.$n.bins $stem.$n.edna $currdir
+
+

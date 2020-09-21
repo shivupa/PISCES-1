@@ -1,0 +1,148 @@
+
+Pittsburgh Infra Structure for Clusters with excess ElectronS
+OpenMP: num_threads = 4
+
+This is the Input read from input.dat:
+31(25) lines of input.dat have been read.
+  0  BeginJob
+  1   runtype = 1,
+  2  EndJob
+  3  BeginElectronPotential
+  4    Polarization = 3,
+  5    InternalParam = 1,
+  6  EndElectronPotential
+  7  BeginGridDef
+  8   NoOfGridPoints = 80, 80, 80,
+  9   Length = 81, 81, 81,
+ 10  EndGridDef
+ 11  BeginWaters
+ 12  O                 -2.66697241    1.73052686    0.00000000
+ 13  H                 -1.77353594    1.38756873    0.00000000
+ 14  H                 -2.55896885    2.68141289    0.00000000
+ 15  O                  2.66697241    1.73052686   -0.00000000
+ 16  H                  1.77353594    1.38756873   -0.00000000
+ 17  H                  2.55896885    2.68141289   -0.00000000
+ 18  O                 -2.66697241   -1.73052686    0.00000000
+ 19  H                 -1.77353594   -1.38756873    0.00000000
+ 20  H                 -2.55896885   -2.68141289    0.00000000
+ 21  O                  2.66697241   -1.73052686    0.00000000
+ 22  H                  1.77353594   -1.38756873    0.00000000
+ 23  H                  2.55896885   -2.68141289    0.00000000
+ 24  EndWaters
+EOF
+InternalParameters uses Damptype= 2, and 
+                  Repulsive Pot = 2
+-----------------------------------------------------------------
+Input Parameters used:
+
+  runtype   = 1 (single point)
+  nElectron = 1 (Cluster with excess electron)
+
+  Standard DPP water model
+
+  ElectronPotential = 3 (DPP charges, 4S-STO repulsive core)
+   PotPara 0: 9.745 (isotropic polarizability alpha)
+   PotPara 1: 5.005 (damping length for polarizable sites [Bohr])
+   PotPara 2: 6.6382 (sigma for Vrep scaling)
+   PotPara 3: 1.7724 (Coulomb damping length [Bohr])
+   PotPara 4: 5.005 (Dipole damping length [Bohr])
+   Polarization model:
+     No polarization included.
+   DampType = 2   (effective-R damping)
+Pisces internal parameters of electron potential being used 
+
+  Particle-in-a-box (sine) DVR
+    Length [Bohr] = 81, 81, 81
+    no of points = 80 x 80 x 80 = 512000
+    Simple sampling at DVR points.
+  
+  Diagonalization Parameters
+    DiagMethod = 2 (Davidson)
+    nStates = 1 (no of eigenpairs to be found)
+    maxSub = 20 (maximal subspace size)
+    maxIter = 100 (maximal no of macro iterations)
+    ptol = 5 (iteration tolerance = 10^-pTol)
+    istartvec = 1 (particle-in-a-box-like startvector)
+-----------------------------------------------------------------
+0
+Input structure [Angs]:
+  O    -2.6669724     1.7305269     0.0000000
+  H    -1.7735359     1.3875687     0.0000000
+  H    -2.5589688     2.6814129     0.0000000
+Rigid structure [Angs]:
+  O    -2.6669840     1.7305198     0.0000000
+  H    -1.7733609     1.3874900     0.0000000
+  H    -2.5589579     2.6816045    -0.0000000
+  M    -2.4532787     1.8602504    -0.0000000
+  center = -2.611337, 1.764301, 0.000000
+  Euler = 3.687183, 1.570796, 0.000000
+1
+Input structure [Angs]:
+  O     2.6669724     1.7305269    -0.0000000
+  H     1.7735359     1.3875687    -0.0000000
+  H     2.5589688     2.6814129    -0.0000000
+Rigid structure [Angs]:
+  O     2.6669840     1.7305198     0.0000000
+  H     1.7733609     1.3874900     0.0000000
+  H     2.5589579     2.6816045    -0.0000000
+  M     2.4532787     1.8602504    -0.0000000
+  center = 2.611337, 1.764301, -0.000000
+  Euler = 5.737595, 1.570796, 3.141593
+2
+Input structure [Angs]:
+  O    -2.6669724    -1.7305269     0.0000000
+  H    -1.7735359    -1.3875687     0.0000000
+  H    -2.5589688    -2.6814129     0.0000000
+Rigid structure [Angs]:
+  O    -2.6669840    -1.7305198     0.0000000
+  H    -1.7733609    -1.3874900     0.0000000
+  H    -2.5589579    -2.6816045    -0.0000000
+  M    -2.4532787    -1.8602504    -0.0000000
+  center = -2.611337, -1.764301, 0.000000
+  Euler = 2.596003, 1.570796, 3.141593
+3
+Input structure [Angs]:
+  O     2.6669724    -1.7305269     0.0000000
+  H     1.7735359    -1.3875687     0.0000000
+  H     2.5589688    -2.6814129     0.0000000
+Rigid structure [Angs]:
+  O     2.6669840    -1.7305198     0.0000000
+  H     1.7733609    -1.3874900     0.0000000
+  H     2.5589579    -2.6816045    -0.0000000
+  M     2.4532787    -1.8602504    -0.0000000
+  center = 2.611337, -1.764301, 0.000000
+  Euler = 0.545590, 1.570796, 0.000000
+Potential::SetVerbose called with 0
+Energy of the neutral cluster E0 = 0.00730235
+Water-Water polarization energy = -0.000608256
+  ************  BEGIN ENERGY ***************
+  time: ComputePotential    : 0.241787
+
+  time: DVR::Diagonalize    : 49.1559
+                                              
+  ------------------------------------------  
+  ***  Energies For The Current Geometry ***  
+  ------------------------------------------  
+       Eneutral = 198.707 meV
+       EBE      = -205.356 meV
+       Etotal   = -6.64917 meV
+  ------------------------------------------  
+  **************  END ENERGY ***************
+                                              
+
+Electron binding energies:
+State 0     -0.00754670 Hartree =     -205.36 meV
+
+State     <|r|>     sqrt(<r^2>)   variance  (all in Angstrom)
+normalization of state0 is 1
+   0      0.00000     4.83173     4.83173
+
+
+Energy expectation values (all in meV)
+
+State     vElec     vInd      vRep      vPol  
+   0   -770.03982     0.00000   198.07987  -368.49598
+ 
+Hello from ClusterAnion
+  time: Total               : 50.1567
+Hello from ClusterAnion

@@ -1,0 +1,34 @@
+#!/bin/bash
+#PBS -N pisces_intel_benchmarks
+#PBS -q shared_large
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=4:00:00
+
+
+
+cd $PBS_O_WORKDIR
+
+
+
+
+
+work=$PBS_O_WORKDIR
+run=$LOCAL
+
+cd $run
+cp /ihome/kjordan/vkv3/pisces/latest/pisces/build/pisces .
+cp /ihome/kjordan/vkv3/pisces/latest/pisces/test/c60.inp .
+cp /ihome/kjordan/vkv3/pisces/latest/pisces/test/c240c60.inp .
+for i in 1 2 4 8 16
+  do
+    export OMP_NUM_THREADS=$i
+    ./pisces c60.inp > c60.out.$i 
+    ./pisces c240c60.inp > c240c60.out.$i 
+  done
+
+
+cp $run/* $work
+
+
+
+

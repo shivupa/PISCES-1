@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/site-macros/!svn/ver/34/trunk/caches
+END
+sam-intel.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/site-macros/!svn/ver/33/trunk/caches/sam-intel.cmake
+END
+intel.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/site-macros/!svn/ver/32/trunk/caches/intel.cmake
+END
+kraken.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/site-macros/!svn/ver/34/trunk/caches/kraken.cmake
+END
+win-vs-intel.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/site-macros/!svn/ver/29/trunk/caches/win-vs-intel.cmake
+END

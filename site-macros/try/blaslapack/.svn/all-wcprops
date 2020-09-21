@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/site-macros/!svn/ver/27/trunk/try/blaslapack
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/site-macros/!svn/ver/27/trunk/try/blaslapack/CMakeLists.txt
+END
+blas.f90
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/site-macros/!svn/ver/27/trunk/try/blaslapack/blas.f90
+END

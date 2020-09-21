@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/pisces/!svn/ver/201/trunk/test
+END
+w8_d2h.inp
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/pisces/!svn/ver/192/trunk/test/w8_d2h.inp
+END
+w4_sp.inp
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/pisces/!svn/ver/195/trunk/test/w4_sp.inp
+END
+w45_pol3_sp.inp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/pisces/!svn/ver/190/trunk/test/w45_pol3_sp.inp
+END
+submit_batch
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/pisces/!svn/ver/190/trunk/test/submit_batch
+END
+w6a_opt.inp
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/pisces/!svn/ver/195/trunk/test/w6a_opt.inp
+END
+w4_pol3_opt_small_input.inp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/pisces/!svn/ver/179/trunk/test/w4_pol3_opt_small_input.inp
+END
+c240c60.inp
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/pisces/!svn/ver/200/trunk/test/c240c60.inp
+END
+runm2c
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/pisces/!svn/ver/200/trunk/test/runm2c
+END
+mol2cub.tar
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/pisces/!svn/ver/200/trunk/test/mol2cub.tar
+END
+c240.inp
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/pisces/!svn/ver/200/trunk/test/c240.inp
+END
+c60.inp
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/pisces/!svn/ver/201/trunk/test/c60.inp
+END
+c60_dimer.inp
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/pisces/!svn/ver/200/trunk/test/c60_dimer.inp
+END
+w12_pol3_opt.inp
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/pisces/!svn/ver/173/trunk/test/w12_pol3_opt.inp
+END
+w4_pol3_opt.inp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/pisces/!svn/ver/190/trunk/test/w4_pol3_opt.inp
+END

@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/pisces.dir/src/C60.cpp.o"
+  "CMakeFiles/pisces.dir/src/ChargeDipPol.cpp.o"
+  "CMakeFiles/pisces.dir/src/ClusterAnion.cpp.o"
+  "CMakeFiles/pisces.dir/src/cm_dvr.cpp.o"
+  "CMakeFiles/pisces.dir/src/DPP.cpp.o"
+  "CMakeFiles/pisces.dir/src/DVR.cpp.o"
+  "CMakeFiles/pisces.dir/src/davdriver.cpp.o"
+  "CMakeFiles/pisces.dir/src/Davidson.cpp.o"
+  "CMakeFiles/pisces.dir/src/DerivDDTensor.cpp.o"
+  "CMakeFiles/pisces.dir/src/GetInput.cpp.o"
+  "CMakeFiles/pisces.dir/src/GeoAux.cpp.o"
+  "CMakeFiles/pisces.dir/src/Gradients.cpp.o"
+  "CMakeFiles/pisces.dir/src/fulldiag.cpp.o"
+  "CMakeFiles/pisces.dir/src/ho_dvr.cpp.o"
+  "CMakeFiles/pisces.dir/src/KE_diag.cpp.o"
+  "CMakeFiles/pisces.dir/src/larnoldi.cpp.o"
+  "CMakeFiles/pisces.dir/src/Model_pot.cpp.o"
+  "CMakeFiles/pisces.dir/src/Molecule.cpp.o"
+  "CMakeFiles/pisces.dir/src/MolPolAux.cpp.o"
+  "CMakeFiles/pisces.dir/src/mtx.cpp.o"
+  "CMakeFiles/pisces.dir/src/NaCl.cpp.o"
+  "CMakeFiles/pisces.dir/src/optimize.cpp.o"
+  "CMakeFiles/pisces.dir/src/Parameters.cpp.o"
+  "CMakeFiles/pisces.dir/src/polplot.cpp.o"
+  "CMakeFiles/pisces.dir/src/Potential.cpp.o"
+  "CMakeFiles/pisces.dir/src/pisces.cpp.o"
+  "CMakeFiles/pisces.dir/src/potfit.cpp.o"
+  "CMakeFiles/pisces.dir/src/ReadCubeFile.cpp.o"
+  "CMakeFiles/pisces.dir/src/sine_dvr.cpp.o"
+  "CMakeFiles/pisces.dir/src/Small2Large.cpp.o"
+  "CMakeFiles/pisces.dir/src/tsin.cpp.o"
+  "CMakeFiles/pisces.dir/src/vtx_FFT.cpp.o"
+  "CMakeFiles/pisces.dir/src/Water.cpp.o"
+  "CMakeFiles/pisces.dir/src/WriteCubeFile.cpp.o"
+  "pisces.pdb"
+  "pisces"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/pisces.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

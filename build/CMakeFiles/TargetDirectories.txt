@@ -1,0 +1,4 @@
+/ihome/kjordan/vkv3/pisces/latest/pisces/build/CMakeFiles/rebuild_cache.dir
+/ihome/kjordan/vkv3/pisces/latest/pisces/build/CMakeFiles/pisces.dir
+/ihome/kjordan/vkv3/pisces/latest/pisces/build/CMakeFiles/edit_cache.dir
+/ihome/kjordan/vkv3/pisces/latest/pisces/build/CMakeFiles/piscesf.dir

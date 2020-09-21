@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/site-macros/!svn/ver/39/trunk/Modules
+END
+utils.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/site-macros/!svn/ver/19/trunk/Modules/utils.cmake
+END
+FindTVMET.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/site-macros/!svn/ver/19/trunk/Modules/FindTVMET.cmake
+END
+FindISAT.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/site-macros/!svn/ver/16/trunk/Modules/FindISAT.cmake
+END
+fermi.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/site-macros/!svn/ver/22/trunk/Modules/fermi.cmake
+END
+FindARPACK.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/site-macros/!svn/ver/35/trunk/Modules/FindARPACK.cmake
+END
+bigben-pgi.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/site-macros/!svn/ver/14/trunk/Modules/bigben-pgi.cmake
+END
+FindFORTRANRTLi.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/site-macros/!svn/ver/13/trunk/Modules/FindFORTRANRTLi.cmake
+END
+FindFFTW.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/site-macros/!svn/ver/36/trunk/Modules/FindFFTW.cmake
+END
+intel.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/site-macros/!svn/ver/18/trunk/Modules/intel.cmake
+END
+LibFindMacros.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/site-macros/!svn/ver/10/trunk/Modules/LibFindMacros.cmake
+END
+Findhwloc.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/site-macros/!svn/ver/39/trunk/Modules/Findhwloc.cmake
+END
+hostname.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/site-macros/!svn/ver/10/trunk/Modules/hostname.cmake
+END
+FindSIGNALHANDLING.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/site-macros/!svn/ver/10/trunk/Modules/FindSIGNALHANDLING.cmake
+END
+FindHDF5.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/site-macros/!svn/ver/17/trunk/Modules/FindHDF5.cmake
+END
+whichcompiler.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/site-macros/!svn/ver/10/trunk/Modules/whichcompiler.cmake
+END
+FindFORTRANRTL.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/site-macros/!svn/ver/14/trunk/Modules/FindFORTRANRTL.cmake
+END
+kraken-gnupgf.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/site-macros/!svn/ver/10/trunk/Modules/kraken-gnupgf.cmake
+END

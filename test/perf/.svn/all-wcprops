@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/pisces/!svn/ver/196/trunk/test/perf
+END
+gettimes.awk
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/pisces/!svn/ver/49/trunk/test/perf/gettimes.awk
+END
+extract.sh
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/pisces/!svn/ver/49/trunk/test/perf/extract.sh
+END
+process.m
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/pisces/!svn/ver/49/trunk/test/perf/process.m
+END
+run.sh
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/pisces/!svn/ver/48/trunk/test/perf/run.sh
+END
+test_pisces.sh
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/pisces/!svn/ver/196/trunk/test/perf/test_pisces.sh
+END

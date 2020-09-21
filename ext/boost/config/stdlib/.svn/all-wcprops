@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/pisces/!svn/ver/46/trunk/ext/boost/config/stdlib
+END
+vacpp.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/pisces/!svn/ver/46/trunk/ext/boost/config/stdlib/vacpp.hpp
+END
+msl.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/pisces/!svn/ver/46/trunk/ext/boost/config/stdlib/msl.hpp
+END
+sgi.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/pisces/!svn/ver/46/trunk/ext/boost/config/stdlib/sgi.hpp
+END
+modena.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/pisces/!svn/ver/46/trunk/ext/boost/config/stdlib/modena.hpp
+END
+libcomo.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/pisces/!svn/ver/46/trunk/ext/boost/config/stdlib/libcomo.hpp
+END
+roguewave.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/pisces/!svn/ver/46/trunk/ext/boost/config/stdlib/roguewave.hpp
+END
+dinkumware.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/pisces/!svn/ver/46/trunk/ext/boost/config/stdlib/dinkumware.hpp
+END
+libstdcpp3.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/pisces/!svn/ver/46/trunk/ext/boost/config/stdlib/libstdcpp3.hpp
+END
+stlport.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/pisces/!svn/ver/46/trunk/ext/boost/config/stdlib/stlport.hpp
+END

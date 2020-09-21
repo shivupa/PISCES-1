@@ -1,0 +1,485 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/pisces/!svn/ver/205/trunk/src
+END
+WriteCubeFile.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/pisces/!svn/ver/94/trunk/src/WriteCubeFile.h
+END
+GTO.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/pisces/!svn/ver/148/trunk/src/GTO.h
+END
+lbfgs.f
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/pisces/!svn/ver/176/trunk/src/lbfgs.f
+END
+DVR.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/pisces/!svn/ver/204/trunk/src/DVR.h
+END
+ChargeDipPol.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/pisces/!svn/ver/200/trunk/src/ChargeDipPol.cpp
+END
+lbfgs.h
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/pisces/!svn/ver/46/trunk/src/lbfgs.h
+END
+ttm_data.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/pisces/!svn/ver/135/trunk/src/ttm_data.h
+END
+optimize.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/pisces/!svn/ver/189/trunk/src/optimize.h
+END
+AtomCenter.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/pisces/!svn/ver/148/trunk/src/AtomCenter.h
+END
+mtx.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/pisces/!svn/ver/129/trunk/src/mtx.cpp
+END
+Parameters.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/pisces/!svn/ver/162/trunk/src/Parameters.h
+END
+larnoldi.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/pisces/!svn/ver/129/trunk/src/larnoldi.h
+END
+Molecule.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/pisces/!svn/ver/148/trunk/src/Molecule.h
+END
+potfit.h
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/pisces/!svn/ver/148/trunk/src/potfit.h
+END
+ClusterAnion.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/pisces/!svn/ver/190/trunk/src/ClusterAnion.h
+END
+tsin.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/pisces/!svn/ver/129/trunk/src/tsin.cpp
+END
+DistributedPolarizabilities.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/pisces/!svn/ver/156/trunk/src/DistributedPolarizabilities.h
+END
+MO.h
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/pisces/!svn/ver/129/trunk/src/MO.h
+END
+NaCl.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/pisces/!svn/ver/94/trunk/src/NaCl.h
+END
+timer.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/pisces/!svn/ver/176/trunk/src/timer.hpp
+END
+davdriver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/pisces/!svn/ver/203/trunk/src/davdriver.cpp
+END
+fulldiag.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/pisces/!svn/ver/129/trunk/src/fulldiag.cpp
+END
+Water.h
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/pisces/!svn/ver/129/trunk/src/Water.h
+END
+C60.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/pisces/!svn/ver/202/trunk/src/C60.cpp
+END
+GeoAux.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/pisces/!svn/ver/194/trunk/src/GeoAux.cpp
+END
+KE_diag.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/pisces/!svn/ver/202/trunk/src/KE_diag.h
+END
+WriteCubeFile.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/pisces/!svn/ver/129/trunk/src/WriteCubeFile.cpp
+END
+dangchangrossky.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/pisces/!svn/ver/46/trunk/src/dangchangrossky.h
+END
+DVR.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/pisces/!svn/ver/202/trunk/src/DVR.cpp
+END
+polplot.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/pisces/!svn/ver/148/trunk/src/polplot.h
+END
+Parameters.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/pisces/!svn/ver/199/trunk/src/Parameters.cpp
+END
+Potential.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/pisces/!svn/ver/200/trunk/src/Potential.h
+END
+Molecule.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/pisces/!svn/ver/135/trunk/src/Molecule.cpp
+END
+potfit.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/pisces/!svn/ver/197/trunk/src/potfit.cpp
+END
+edna.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/pisces/!svn/ver/200/trunk/src/edna.cpp
+END
+cm_dvr.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/pisces/!svn/ver/129/trunk/src/cm_dvr.cpp
+END
+ReadCubeFile.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/pisces/!svn/ver/129/trunk/src/ReadCubeFile.cpp
+END
+Davidson.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/pisces/!svn/ver/184/trunk/src/Davidson.h
+END
+mtx.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/pisces/!svn/ver/129/trunk/src/mtx.h
+END
+NaCl.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/pisces/!svn/ver/160/trunk/src/NaCl.cpp
+END
+sine_dvr.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/pisces/!svn/ver/13/trunk/src/sine_dvr.h
+END
+KE_diag.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/pisces/!svn/ver/202/trunk/src/KE_diag.cpp
+END
+ho_dvr.h
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/pisces/!svn/ver/13/trunk/src/ho_dvr.h
+END
+writewfcuts.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/pisces/!svn/ver/129/trunk/src/writewfcuts.cpp
+END
+DPP.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/pisces/!svn/ver/149/trunk/src/DPP.h
+END
+polplot.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/pisces/!svn/ver/148/trunk/src/polplot.cpp
+END
+davdriver.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/pisces/!svn/ver/129/trunk/src/davdriver.h
+END
+C60.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/pisces/!svn/ver/198/trunk/src/C60.h
+END
+GeoAux.h
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/pisces/!svn/ver/131/trunk/src/GeoAux.h
+END
+Potential.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/pisces/!svn/ver/199/trunk/src/Potential.cpp
+END
+GetInput.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/pisces/!svn/ver/148/trunk/src/GetInput.h
+END
+Davidson.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/pisces/!svn/ver/194/trunk/src/Davidson.cpp
+END
+sine_dvr.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/pisces/!svn/ver/129/trunk/src/sine_dvr.cpp
+END
+Small2Large.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/pisces/!svn/ver/129/trunk/src/Small2Large.h
+END
+DerivDDTensor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/pisces/!svn/ver/167/trunk/src/DerivDDTensor.cpp
+END
+cm_dvr.h
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/pisces/!svn/ver/13/trunk/src/cm_dvr.h
+END
+ReadCubeFile.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/pisces/!svn/ver/13/trunk/src/ReadCubeFile.h
+END
+ho_dvr.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/pisces/!svn/ver/129/trunk/src/ho_dvr.cpp
+END
+erf.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/pisces/!svn/ver/160/trunk/src/erf.h
+END
+constants.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/pisces/!svn/ver/129/trunk/src/constants.h
+END
+Model_pot.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/pisces/!svn/ver/199/trunk/src/Model_pot.cpp
+END
+DPP.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/pisces/!svn/ver/162/trunk/src/DPP.cpp
+END
+vecdefs.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/pisces/!svn/ver/148/trunk/src/vecdefs.h
+END
+writewfcuts.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/pisces/!svn/ver/129/trunk/src/writewfcuts.h
+END
+GetInput.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/pisces/!svn/ver/199/trunk/src/GetInput.cpp
+END
+optimize.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/pisces/!svn/ver/195/trunk/src/optimize.cpp
+END
+lapackblas.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/pisces/!svn/ver/198/trunk/src/lapackblas.h
+END
+larnoldi.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/pisces/!svn/ver/205/trunk/src/larnoldi.cpp
+END
+Small2Large.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/pisces/!svn/ver/129/trunk/src/Small2Large.cpp
+END
+ClusterAnion.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/pisces/!svn/ver/200/trunk/src/ClusterAnion.cpp
+END
+ChargeDipPol.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/pisces/!svn/ver/199/trunk/src/ChargeDipPol.h
+END
+Gradients.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/pisces/!svn/ver/193/trunk/src/Gradients.cpp
+END
+MolPolAux.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/pisces/!svn/ver/152/trunk/src/MolPolAux.cpp
+END
+vtx_FFT.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/pisces/!svn/ver/202/trunk/src/vtx_FFT.cpp
+END
+Water.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/pisces/!svn/ver/148/trunk/src/Water.cpp
+END
+tsin.h
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/pisces/!svn/ver/129/trunk/src/tsin.h
+END
+defs.h
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/pisces/!svn/ver/148/trunk/src/defs.h
+END
+pisces.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/pisces/!svn/ver/199/trunk/src/pisces.cpp
+END
+Model_pot.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/pisces/!svn/ver/199/trunk/src/Model_pot.h
+END
+fulldiag.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/pisces/!svn/ver/46/trunk/src/fulldiag.h
+END

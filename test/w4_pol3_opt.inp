@@ -1,0 +1,53 @@
+BeginJob
+ runtype = 2,
+ CubeFile = 0,
+ WfCuts = 0,
+EndJob
+
+BeginWaterModel
+ Verbose = 0,
+ KTCharges = 0,
+EndWaterModel
+
+BeginElectronPotential
+  Potential = 3,
+  DampType = 2,
+  Polarization = 3,
+  RepCoreScale = 6.207 ,
+  CoulombDamping = 1.7724,
+  DipoleDamping = 1.7724 ,
+  PolDamping = 4.895,
+  AdiabaticPolPot = 0,
+EndElectronPotential
+
+
+BeginGridDef
+ Verbose = 0,
+ DVR = 0,
+ NoOfGridPoints = 30, 30, 30,
+ Length = 81, 81, 81,
+EndGridDef
+
+BeginDiag
+ Method = 2,
+ nStates = 1,
+ maxSubspace = 15,
+ maxIter = 300,
+ pTol = 5,
+ StartVector = 1,
+EndDiag
+BeginWaters
+O                 -2.66697241    1.73052686    0.00000000
+H                 -1.77353594    1.38756873    0.00000000
+H                 -2.55896885    2.68141289    0.0000000
+O                  2.66697241    1.73052686   -0.0000000
+H                  1.77353594    1.38756873   -0.0000000
+H                  2.55896885    2.68141289   -0.0000000
+O                 -2.66697241   -1.73052686    0.0000000
+H                 -1.77353594   -1.38756873    0.0000000
+H                 -2.55896885   -2.68141289    0.0000000
+O                  2.66697241   -1.73052686    0.0000000
+H                  1.77353594   -1.38756873    0.0000000
+H                  2.55896885   -2.68141289    0.0000000
+EndWaters
+
