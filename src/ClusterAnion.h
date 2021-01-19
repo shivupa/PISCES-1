@@ -16,7 +16,7 @@ class ClusterAnion
   void GetAnalGrad( const double *WaterConf, double *analgrad);
   void GetNumGrad( const double *WaterConf, double *analgrad);
 
-  ~ClusterAnion();
+  ~ClusterAnion() {};
 
  private:
 

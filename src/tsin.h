@@ -1,3 +1,5 @@
+#ifndef PISCES_TSIN_H_
+#define PISCES_TSIN_H_
 //
 //  This is a small line-oriented input parser 
 // 
@@ -61,3 +63,4 @@ private :
   char *line[TSINMaxLines];
 
 };
+#endif // PISCES_TSIN_H_

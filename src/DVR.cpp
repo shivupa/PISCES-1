@@ -14,9 +14,7 @@
 #include <iostream>
 
 
-#ifdef _OPENMP
 #include <omp.h>
-#endif
 #include <mpi.h>
 #include "VectorFFT.hpp"
 
