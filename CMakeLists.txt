@@ -71,9 +71,7 @@ add_library( pisces_src
   src/Parameters.cpp
   src/polplot.cpp
   src/Potential.cpp
-#  src/pisces.cpp
   src/potfit.cpp
-#  src/Powell.cpp
   src/ReadCubeFile.cpp
   src/sine_dvr.cpp
   src/Small2Large.cpp
@@ -95,7 +93,6 @@ endif()
 add_executable( pisces
   ${headers}
   src/pisces.cpp
-  #  ${src}
 )
   
 include_directories( ${PROJECT_SOURCE_DIR}/ext )
